@@ -15,6 +15,7 @@ The code for the website is in: search_feature folder
 
 # Installation:
 - Install NodeJS, MSSQL database
+- Check out repo of old version to see how to design database schema: https://github.com/acemarco1311/Shoes-Store-Search-Feature
 - Install ExpressJS step to step from the documentation: https://expressjs.com/en/starter/installing.html
 - Install NodeJS module: mssql,msnodesqlv8
 - Change the database configuration in search_feature/routes/index.js (const config): to fit your database setup
