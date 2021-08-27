@@ -1,0 +1,23 @@
+{
+  "name": "search-feature",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "msnodesqlv8": "^2.2.0",
+    "mssql": "^7.2.1",
+    "pug": "2.0.0-beta11",
+    "tedious": "^12.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^7.16.0"
+  }
+}
