@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>WDC Final Exam</title>
+      <link rel="stylesheet" href="stylesheets/style.css">
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="javascripts/page.js" defer></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   </head>
+   <body>
+      <nav>
+         <div class="logo">
+            Shoes Store
+         </div>
+         <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+               <a href="#">Men</a>
+            </li>
+            <li>
+               <a href="#">Women</a>
+               <ul>
+                  <li><a href="#">Leather</a></li>
+                  <li><a href="#">Sneaker</a></li>
+               </ul>
+            </li>
+            <li><a href="#">Sign up</a></li>
+            <li><a href="#">Log in</a></li>
+         </ul>
+      </nav>
+
+      <div class='header'>
+        <h1>Search for your ideal shoes</h1>
+      </div>
+      <div id='container'>
+      <div class='search-box'>
+
+          <div class='item'>
+            <label for="brand" style="font-weight: bold; font-size: 20px">Brand: </label>
+            <input class="search" type="text" id="brand" placeholder="Brand: Nike, Adidas, etc">
+          </div>
+          <div class='item'>
+            <label for="style" style="font-weight: bold; font-size: 20px">Style: </label>
+            <input class="search" type="text" id="style" placeholder="Style: Casual, Sporty, etc">
+          </div>
+          <div class='item'>
+            <label for="min-size" style="font-weight: bold; font-size: 20px">Size (US): </label>
+            <input type="number" id="min-size" name="size" value="1" step="0.5" min="1" max="20">
+            <span style="margin-left: 15px; margin-right: 15px"> TO </span>
+            <input type="number" id="max-size" name="size" value="10" step="0.5" min="1.5" max="20">
+          </div>
+          <div class='item'>
+            <label for='min' style="font-weight: bold; font-size: 20px">Price range: </label>
+            <span id="min-price">Min: </span>
+            <input type="number" id="min" name="min" value="0" step="10" min="0" max="500">
+            <span> - </span>
+            <span id="max-price">Max: </span>
+            <input type="number" id="max" name="max" value="500" step="10" min="40" max="500">
+          </div>
+      </div>
+      <div class="outside">
+            <div class="search-outside" v-on:click="search()">Search</div>
+      </div>
+
+      <div id='result-heading'>
+        <h2>Your results</h2>
+      </div>
+
+      <div class='search-result' v-for='model in result'>
+        <div class='image-model'>
+          <img src="/images/images.jpg" alt="Sample image of shoes" class='sample-image'>
+        </div>
+        <div class="price-model">
+          <div id="price">{{model.price}}$</div>
+          <button type="button" id='buy'>Buy now</button>
+        </div>
+        <div class='model-information'>
+          <h3 class='model-name'>{{model.itemName}}</h3>
+          <hr>
+          <p class='info'><span style="font-weight: bold">Model Name: </span>{{model.brand}}</p>
+          <p class='info'>
+            <span style="font-weight: bold">Styles: </span> <span v-for='style in model.styles'> | {{style}} |</span>
+          </p>
+          <p class='info'>
+            <span style="font-weight: bold">Colors: </span> <span  v-for='color in model.colors'> | {{color}} |</span>
+          </p>
+          <p class='info'>
+            <span style="font-weight: bold">Size in stock (Size : Stock):
+            </span>
+            <span v-for='sizeStock in model.totalSizeStock'> | {{sizeStock.size}}  : {{sizeStock.stockNumber}} |
+            </span>
+          </p>
+        </div>
+        <hr>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+      <div class="container-fluid" id="contact">
+        <div class="row">
+          <div class="col col-md-3 col-lg-3 col-12 order-1">
+              <div style="display: flex; align-items:center; justify-content: center">
+                <img src="images/brand-logo.png" alt="" style="width: 250px; height: 200px"/>
+              </div>
+          </div>
+          <div class="col col-md-3 col-lg-3 col-12 order-2">
+              <div class="footer-text">
+                  <h3 class="footer_title">ABOUT US</h3>
+                  <nav class="nav flex-column" style='background-color: #102535'>
+                    <a class="nav-link" href="thelink">Team</a>
+                    <a class="nav-link" href="thelink">Course</a>
+                    <a class="nav-link" href="thelink">Email</a>
+                  </nav>
+              </div>
+          </div>
+          <div class="col col-md-3 col-lg-3 col-12 order-3">
+              <div class="footer-text">
+                  <h3 class="footer_title">PRODUCT</h3>
+                  <nav class="nav flex-column" style='background-color: #102535'>
+                    <a class="nav-link" href="thelink">Terms of service</a>
+                    <a class="nav-link" href="thelink">Privacy</a>
+                    <a class="nav-link" href="thelink">Cookie Policy</a>
+                  </nav>
+              </div>
+          </div>
+          <div class="col col-md-3 col-lg-3 col-12 order-4">
+              <div class="footer-text">
+                  <h3 class="footer_title">CONTACT</h3>
+                  <div class="footer-icon">
+                    <a href="https://facebook.com" style="color:white">
+                      <i style="font-size:70px" class="fa">&#xf082;</i>
+                    </a>
+                    <a href="https://instagram.com" style="color:white">
+                      <i style="font-size:70px" class="fa">&#xf16d;</i>
+                    </a>
+                    <a href="https://twitter.com" style="color:white">
+                      <i style="font-size:70px" class="fa">&#xf099;</i>
+                    </a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+   </body>
+</html>
